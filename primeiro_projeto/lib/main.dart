@@ -78,7 +78,7 @@ for (int i=1; i<=5; i++){
 */
 
 /*INTERMEDIARIO
-void exibirDados(String nome, [int idade], [double altura] ){
+void exibirDados(String nome, [?int idade], [?double altura] ){
   /*{}define como opcional ou n, quando for é necessário chamar
   variavel:valor no retorno da função*/
   print("Olá $nome sua idade: $idade sua altura: $altura ");
@@ -91,6 +91,152 @@ void main() {
   //funções, parâmentros e funções anônimas
   exibirDados("Leonardo"/*, 21, altura:1.80*/);
   //1. String nome=exibirDados(); print(nome);
+}
+*/
+
+/* void exibirDados( String nome, [int? idade, double? altura] ){
+  /*{}define como opcional ou n, quando for é necessário chamar
+  variavel:valor no retorno da função*/
+  
+  int novaIdade = idade ?? 0;
+  double novaAltura = altura ?? 0;
+  print("Olá $nome sua idade: $novaIdade sua altura: $novaAltura ");
+} /*ou 
+1. String exibirDados(){
+  return "Olá Leonardo";
+}*/
+void main() {
+  
+  //funções, parâmentros e funções anônimas
+  exibirDados("Leonardo", 18 , 1.80);
+  //1. String nome=exibirDados(); print(nome);
+}
+*/
+/*
+void exibirDados( String nome, Function funcao){
+  
+  print("Olá $nome");
+  funcao;
+  
+}
+
+void calcularBonus(){
+  print("Bonus Calculado");
+}
+void main() {
+  
+  //funções, parâmentros e funções anônimas
+  exibirDados("Leonardo", calcularBonus);
+  //1. String nome=exibirDados(); print(nome);
+}*/ 
+
+/*Construtores e método
+class Animal{
+  String? cor;
+  
+  //construtor
+  Animal(String cor){
+    /*configurar automaticamente cor em que this.cor recebe cor
+    descartando a linha animal.cor e print animal.cor*/
+    this.cor = cor;
+  } // ou de maneira simples Animal(this.cor);
+  
+  //namied construtor || contrutor nomeado
+  
+  Animal.jabuti(this.cor)
+  {
+    print("Construtor de Jabuti");
+  }  
+  //metodo
+  void dormir(){
+    print("dormir");
+  }}
+void main() {
+  /*Classes, construtores e herança
+   */
+//classe(tipo).nome = new objeto()
+  //Animal animal = Animal("Marrom");
+  Animal animal = Animal.jabuti("rosa");
+  //animal.cor = "marrom";
+  animal.dormir();
+  print(animal.cor);
+}
+*/
+
+/*
+class Animal{
+  String? cor;
+  
+  //metodo
+  void dormir(){
+    print("zZzZzzZ...");
+  }
+}
+//extends significa relação de herança, Cao herda de Animal metodo dormir
+class Cao extends Animal{
+  String? corOrelha;
+  
+  //metodo
+  void latir(){
+    print("AU-AU");
+  }
+  
+}
+class Passaro extends Animal{
+    String? corBico;
+  
+  //metodo
+  void piar(){
+    print("Bem te vi");
+  }
+  
+}
+
+  void main() {
+  /*Classes, construtores e herança
+   */
+  //tipo.variavel = new objeto;
+    Cao cao = new Cao();
+    cao.dormir();
+    cao.latir();
+    
+    //tipo.variavel = new objeto;
+    Passaro passaro = new Passaro();
+    passaro.dormir();
+    passaro.piar();
+
+}
+*/
+
+/*Getters and Setters
+class Conta{
+  double _saque = 0;
+  //_ proporciona que o atibuto não seja pego externo a classe
+  
+  double get saque {
+    //validações
+    return this._saque;
+    //retorna em _saque
+  }
+  
+  //verifica se esta dentro das especificações e configura o valor do atributo
+  set saque(double saque)
+  {
+    if(saque > 0 && saque <= 500){
+      this._saque = saque;
+    }
+  }
+}
+  void main() {
+  /*Getters and Setters
+   */
+    
+    //getters= proteger os atributos da sua classe, pega o valor
+    Conta conta = new Conta();
+    conta.saque = 500; //usando set configurar
+    
+    print(conta.saque);//get pegar
+
 }
 */
 

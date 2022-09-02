@@ -19,6 +19,9 @@ var total = 20 * 10; //+ - * /
 print(total);
 */
 
+///////////////////////////////////////////////////////////////////////////////
+
+
 /*Operadores básicos relacionais
 == IGUAL A
 != DIFERENTE
@@ -39,6 +42,10 @@ bool resultado = true && true ; //&& ||
 print(resultado);
 */
 
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
 /*Controladores de fluxo if else switch
 
 var idade =10;
@@ -58,6 +65,11 @@ switch(comando){
   print("Nenhuma opção escolhida");
 }
 */
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 /*Loops for e while 
 
 var numero = 0;
@@ -77,6 +89,10 @@ for (int i=1; i<=5; i++){
 }
 */
 
+
+//////////////////////////////////////////////////////////////////
+
+
 /*INTERMEDIARIO
 void exibirDados(String nome, [?int idade], [?double altura] ){
   /*{}define como opcional ou n, quando for é necessário chamar
@@ -93,6 +109,11 @@ void main() {
   //1. String nome=exibirDados(); print(nome);
 }
 */
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 /* void exibirDados( String nome, [int? idade, double? altura] ){
   /*{}define como opcional ou n, quando for é necessário chamar
@@ -112,6 +133,11 @@ void main() {
   //1. String nome=exibirDados(); print(nome);
 }
 */
+
+
+////////////////////////////////////////////////////////////////////
+
+
 /*
 void exibirDados( String nome, Function funcao){
   
@@ -129,6 +155,10 @@ void main() {
   exibirDados("Leonardo", calcularBonus);
   //1. String nome=exibirDados(); print(nome);
 }*/ 
+
+
+/////////////////////////////////////////////////////////////////////////
+
 
 /*Construtores e método
 class Animal{
@@ -162,6 +192,9 @@ void main() {
   print(animal.cor);
 }
 */
+
+/////////////////////////////////////////////////////////////////////////////
+
 
 /*
 class Animal{
@@ -208,6 +241,9 @@ class Passaro extends Animal{
 }
 */
 
+////////////////////////////////////////////////////////////////////////////////
+
+
 /*Getters and Setters
 class Conta{
   double _saque = 0;
@@ -238,6 +274,177 @@ class Conta{
     print(conta.saque);//get pegar
 
 }
+*/
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+/*
+//#SOBRESCRITA DE MÉTODOS
+
+class Animal{
+  String? cor;
+  
+  //construtor
+  Animal(this.cor);//configurar a cor no construtor
+  //metodo
+  void dormir(){
+    print("zZzZzzZ...");
+  }
+  void correr(){
+    print("Correr como um ");
+  }
+}
+//extends significa relação de herança, Cao herda de Animal metodo dormir
+class Cao extends Animal{
+  String? corOrelha;
+  
+  //cosntrutor
+  Cao(String cor, this.corOrelha) : super(cor); //Recebe cor e chama o construtor de animal para passar a cor(parametro) para construtor animal 
+  
+  //metodo
+  void latir(){
+    print("AU-AU");
+  }
+  //Sobescreve um método pai
+  @override
+  void correr(){
+    super.correr();//classe pai ou super classe
+    print("cão");
+  }
+  
+}
+class Passaro extends Animal{
+    String? corBico;
+  
+  Passaro(String cor) : super(cor);
+  
+  //metodo
+  void piar(){
+    print("Bem te vi");
+  }
+  void voar(){
+    print("Voar");
+  }
+    @override
+  void correr(){
+    super.correr();
+    print("Pássaro");
+  }
+  
+}
+
+  void main() {
+  /*Classes, construtores e herança
+   */
+    Cao cao = new Cao("Marrom", "Branca");
+    print(cao.cor!);
+    cao.correr();
+    //tipo.variavel = new objeto;
+    
+    //tipo.variavel = new objeto;
+}
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/*
+//#CLASSES ABSTRATAS E MODIFICADORES STATIC E FINAL
+
+//A classe animal normalmente não é instanciada, apenas seus filhos
+//então o abstract não permite ser instanciada
+abstract class Animal{
+  String? cor;
+  
+  //construtor
+  Animal(this.cor);//configurar a cor no construtor
+  //metodo
+  void dormir(){
+    print("zZzZzzZ...");
+  }
+  void correr(){
+    print("Correr como um ");
+  }
+}
+//extends significa relação de herança, Cao herda de Animal metodo dormir
+class Cao extends Animal{
+  String? corOrelha;
+  
+  //cosntrutor
+  Cao(String cor, this.corOrelha) : super(cor); //Recebe cor e chama o construtor de animal para passar a cor(parametro) para construtor animal 
+  
+  //metodo
+  void latir(){
+    print("AU-AU");
+  }
+  //Sobescreve um método pai
+  @override
+  void correr(){
+    super.correr();//classe pai ou super classe
+    print("cão");
+  }
+  
+}
+class Passaro extends Animal{
+    String? corBico;
+  
+  Passaro(String cor) : super(cor);
+  
+  //metodo
+  void piar(){
+    print("Bem te vi");
+  }
+  void voar(){
+    print("Voar");
+  }
+    @override
+  void correr(){
+    super.correr();
+    print("Pássaro");
+  }
+  
+}
+
+class Configuracoes{
+  static String IdentificadorApp= "jlads789789";
+  
+  static void configuracaoInicial(){
+    print("Aceita que as informações são válidas \ne deseja executar configurações iniciais e atualizações?");
+  }
+}
+
+  void main() {
+    //modificadores
+    
+    //com static não é preciso instanciar
+    //Configuracoes config = Configuracoes();
+    
+    Configuracoes.configuracaoInicial();
+    //    classe        objeto
+    print(Configuracoes.IdentificadorApp);
+    
+    
+  /*Classes, construtores e herança
+   */
+    //final, não pode receber novo valor
+    final Cao cao = new Cao("Marrom", "Branca");
+    print(cao.cor);
+    cao.correr();
+    //pode se colocar novamente o objeto com outro valor,
+    //mas se colocar final ele é absoluto e n pode ser re-usado
+    //cao = new Cao("Vermelho", "Branca");
+    //print(cao.cor);
+    //tipo.variavel = new objeto;
+}*/
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/*#INTERFACE
+
 */
 
 
